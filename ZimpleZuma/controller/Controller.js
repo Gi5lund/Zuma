@@ -1,6 +1,6 @@
 "use strict";
 //import {LinkedList} from "../model/model.js"; 
-import {View} from "../view/View.js"
+import {View} from "../view/view.js";   
 import { Node } from "../model/ballNode.js"; 
 import {Model} from "../model/model.js";
 
@@ -8,7 +8,24 @@ export class Controller{
     constructor(){
         this.model=new Model();
         this.view=new View(this);
-        this.model.initList();
+        this.gameOver=true;
+    }
+    initialize(){
+        if(this.gameOver){
+            console.log("initialize - starting game");
+            this.model.initList();
+            this.gameOver=false;
+            this.view.update();
+        }
+        
+        console.log("game in progress");
+        return;
+    }
+    abortGame(){
+        console.log("abort game");
+        this.gameOver=true;
+        this.model.list=new LinkedList();
+        this.view.update();
     }
     modelUpdate(){
         this.view.update();

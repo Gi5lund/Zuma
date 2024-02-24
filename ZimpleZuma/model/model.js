@@ -8,7 +8,7 @@ const Model={
     initList:function(){
         for(let i=0;i<10;i++){
             const node=new Node();
-            this.addLast(node);
+            this.list.addLast(node);
         }
         Controller.modelUpdate();
     },

@@ -33,7 +33,7 @@ export class Controller{
     }
     loadCannon(){
         this.model.loadCannon();
-        this.view.updateCannon();
+        this.view.loadCannon(this.model.ball);
     }
     insertBallLast(){
         this.model.insertBallLast();

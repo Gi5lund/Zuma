@@ -13,8 +13,8 @@ export class View{
         const imgSrc={
            "red": "red-ball.png",
             "blue":"blue-ball.png",
-             "green": "green-ball.png",
-              "yellow":"yellow-ball.png"
+            "green": "green-ball.png",
+            "yellow":"yellow-ball.png"
         }
         while(current){
             let ball=document.createElement("div");
@@ -25,11 +25,11 @@ export class View{
             current=current.next;
         }
     }
-    loadCannon(){
+    loadCannon(ball){
         let cannon=document.querySelector("#cannon .ball");
         cannon.innerHTML="";
         let img=document.createElement("img");
-        img.src="cannon.png";
+        img.src=ball.value+"-ball.png"; //TODO: build correct path 
         ball.classList.add("ball");
         ball.style.backgroundColor=this.controller.model.ball.value;
        

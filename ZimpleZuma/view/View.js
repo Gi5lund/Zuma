@@ -7,9 +7,15 @@ export class View{
         
       
     }
-    update(){
+    updateList(){ //renders the view
         this.clearView();
         let current=this.controller.model.list.head;
+        const imgSrc={
+           "red": "red-ball.png",
+            "blue":"blue-ball.png",
+             "green": "green-ball.png",
+              "yellow":"yellow-ball.png"
+        }
         while(current){
             let ball=document.createElement("div");
             ball.classList.add("ball");
@@ -20,13 +26,13 @@ export class View{
         }
     }
     loadCannon(){
-        let cannon=document.querySelector("#cannon");
+        let cannon=document.querySelector("#cannon .ball");
         cannon.innerHTML="";
-        let ball=document.createElement("div");
+        let img=document.createElement("img");
+        img.src="cannon.png";
         ball.classList.add("ball");
         ball.style.backgroundColor=this.controller.model.ball.value;
-        ball.addEventListener("click",()=>this.controller.insertBallFirst());
-        cannon.appendChild(ball);
+       
     }
     clearView(){
         this.board.innerHTML="";
@@ -34,4 +40,6 @@ export class View{
         document.querySelector("#start").removeEventListener("click",this.initlistener);
         document.querySelector("#end").removeEventListener("click",this.controller.abortGame);
     }
+
+    
 }

@@ -15,7 +15,8 @@ export class Controller{
             console.log("initialize - starting game");
             this.model.initList();
             this.gameOver=false;
-            this.view.update();
+            this.view.updateList();
+            this.view.updateCannon();
         }
         
         console.log("game in progress");
@@ -28,10 +29,11 @@ export class Controller{
         this.view.update();
     }
     modelUpdate(){
-        this.view.update();
+        this.view.updateList();
     }
     loadCannon(){
         this.model.loadCannon();
+        this.view.updateCannon();
     }
     insertBallLast(){
         this.model.insertBallLast();
